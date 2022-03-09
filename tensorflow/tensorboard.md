@@ -1,0 +1,1 @@
+[How to inspect a pre-trained TensorFlow model](https://daj.medium.com/how-to-inspect-a-pre-trained-tensorflow-model-5fd2ee79ced0)

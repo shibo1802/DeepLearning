@@ -14,3 +14,5 @@
 [信息熵，交叉熵和相对熵](https://www.cnblogs.com/liaohuiqiang/p/7673681.html)
 
 [如何通俗的解释交叉熵与相对熵](https://www.zhihu.com/question/41252833)
+
+[深度学习Int8的部署推理原理和经验验证](https://mp.weixin.qq.com/s/w1b_DVVWmvTSQtGcoFRN0Q)

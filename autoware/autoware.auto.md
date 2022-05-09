@@ -105,6 +105,7 @@ ade$ ros2 run euclidean_cluster_nodes euclidean_cluster_node_exe --ros-args --pa
 ```
 
 #### Aopllo CNN
+- Run necessary nodes, e.g. sensors, rviz2
 ```
 $ ade enter
 ade$ source install/setup.sh
@@ -113,15 +114,37 @@ ade$ ros2 launch install/autoware_demos/share/autoware_demos/launch/sim_lidar_ca
 # Comment the euclidean_clustering since it has the same outputs with apollo_lidar_segmentation
 ```
 
+- bridge
 ```
-lgsvl-bridge
+lgsvl-bridge # The lgsvl simulation must be ROS2
 ```
 
+- Run Apollo CNN node
 ```
 ros2 launch install/apollo_lidar_segmentation_nodes/share/apollo_lidar_segmentation_nodes/launch/lidar_segmentation.launch.py
+```
 
-# detect function
-# autoware::perception::segmentation::apollo_lidar_segmentation_nodes::ApolloLidarSegmentationNode::pointCloudCallback
+- preprocess
+```
+autoware::perception::segmentation::apollo_lidar_segmentation::ApolloLidarSegmentationPreProcessor::schedule
+```
 
-# output topics: lidar_bounding_boxes and lidar_bounding_boxes_viz
+- executation
+```
+tvm_utility::pipeline::InferenceEngineTVM::schedule
+```
+
+- postprocess
+```
+autoware::perception::segmentation::apollo_lidar_segmentation::ApolloLidarSegmentationPostProcessor::schedule
+```
+
+- Obstacle To Object
+```
+autoware::perception::segmentation::apollo_lidar_segmentation::Cluster2D::obstacleToObject
+```
+
+- Output topics
+```
+lidar_bounding_boxes and lidar_bounding_boxes_viz
 ```
